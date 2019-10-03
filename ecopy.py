@@ -4,7 +4,9 @@ from Crypto.Cipher import AES, PKCS1_OAEP
 
 from os import path
 
-data = "Since we want to be able to encrypt an arbitrary amount of data, we use a hybrid encryption scheme. We use RSA with PKCS#1 OAEP for asymmetric encryption of an AES session key. The session key can then be used to encrypt all the actual data.".encode("utf-8")
+import datetime
+
+data = (str(datetime.datetime.utcnow()) + ": Since we want to be able to encrypt an arbitrary amount of data, we use a hybrid encryption scheme. We use RSA with PKCS#1 OAEP for asymmetric encryption of an AES session key. The session key can then be used to encrypt all the actual data.").encode("utf-8")
 print(len(data))
 file_out = open(path.expanduser("~/encrypted_data.bin"), "wb")
 
