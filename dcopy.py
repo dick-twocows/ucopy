@@ -1,7 +1,9 @@
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import AES, PKCS1_OAEP
 
-file_in = open("encrypted_data.bin", "rb")
+from os import path
+
+file_in = open(path.expanduser("~/encrypted_data.bin"), "rb")
 
 private_key = RSA.import_key(open('/home/dick/YellowDog/ops.key').read())
 
